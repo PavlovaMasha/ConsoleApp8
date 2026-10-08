@@ -60,9 +60,9 @@ namespace ConsoleApp8
 
         public abstract void Prepare();
 
-        public void Serve()
+        public void Serve(string name)
         {
-            Console.WriteLine($"Напиток {Name} подан!");
+            Console.WriteLine($"Напиток {name} подан!");
         }
     }
 
@@ -70,33 +70,18 @@ namespace ConsoleApp8
     {
         public override string Name => "Кофе";
         public override double Price => 150;
-
-        public override void Prepare()
-        {
-            Console.WriteLine("Кофе приготовлен.");
-        }
     }
 
     public class Tea : Drink
     {
         public override string Name => "Чай";
         public override double Price => 100;
-
-        public override void Prepare()
-        {
-            Console.WriteLine("Чай приготовлен.");
-        }
     }
 
     public class Smoothie : Drink
     {
         public override string Name => "Смузи";
         public override double Price => 200;
-
-        public override void Prepare()
-        {
-            Console.WriteLine("Смузи приготовлен.");
-        }
     }
 
     public class DrinkFactory
@@ -157,9 +142,7 @@ namespace ConsoleApp8
             }
 
             Console.WriteLine($"Цена напитка: {newDrink.Price} рублей");
-
-            newDrink.Prepare();
-            newDrink.Serve();
+            newDrink.Serve(newDrink.Name);
         }
     }
 }
